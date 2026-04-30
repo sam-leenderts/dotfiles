@@ -1,8 +1,8 @@
+
 #!/usr/bin/env bash
 #
 # Author: Sam leenderts
-# Date: 2024
-
+# Date: 2026
 
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
@@ -16,7 +16,7 @@ fi
 export PATH="$PATH:/home/samm/.local/bin"
 
 # Set environment
-export EDITOR='code'
+export EDITOR='nano'
 export GREP_COLOR='1;36'
 export HISTCONTROL='ignoredups'
 export HISTSIZE=5000
@@ -26,10 +26,14 @@ export TZ='Australia/Brisbane'
 # Aliases
 alias ..='echo "cd .."; cd ..'
 alias chomd='chmod'
-alias externalip='curl -sS http://www.ipconfig.sh/'
+alias externalip='curl -sS https://am.i.mullvad.net/ip'
 alias gerp='grep'
 alias suod='sudo'
-alias scanhome="echo 'sudo clamdscan --fdpass --log=/var/log/clamav/clamdscan.log /home'"
+alias tf='terraform'
+
+# k8s 
+alias kc='kubectl'
+alias k9s='k9s --screen-dump-dir ~/screendumps/'
 
 # Git Aliases
 alias nb='git checkout -b "$USER-$(date +%s)"' # new branch
@@ -83,8 +87,8 @@ gmb() { # git main branch
 	echo "$main"
 }
 
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias kc='kubectl'
+alias k9s='k9s --screen-dump-dir ~/screendumps/'
 
 gho() {
 	local file=$1
